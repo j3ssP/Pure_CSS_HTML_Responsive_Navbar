@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Responsive Navbar</title>
+	<meta charset="utf-8" />
+<style>    
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+    background-color: #ffffff;
+}
+
+a {
+    color: #000000;
+}
+
+.header {
+    background-color: #ffffff;
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+    top: 0;
+    padding-bottom: 0;
+}
+
+    .header ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        overflow: hidden;
+        background-color: #ffffff;
+        padding-bottom: 0;
+    }
+
+    .header li a {
+        display: block;
+        padding: 20px 20px;
+        text-decoration: none;
+    }
+
+        .header li a:hover,
+        .header .mButton:hover {
+            background-color: #e0e0e0;
+            color: #33be9c;
+        }
+
+    .header .logo {
+        display: block;
+        float: left;
+        font-size: 2em;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: #33be9c;
+        font-family: "vonique_64_bold", Helvetica, sans-serif;
+        padding-bottom: 0;
+    }
+
+
+    .header .menu {
+        clear: both;
+        max-height: 0;
+        transition: max-height .2s ease-out;
+    }
+
+
+    .header .mIcon {
+        cursor: pointer;
+        display: inline-block;
+        float: right;
+        padding: 28px 20px;
+        position: relative;
+        user-select: none;
+    }
+
+        .header .mIcon .navIcon {
+            background: #333;
+            display: block;
+            height: 2px;
+            position: relative;
+            transition: background .2s ease-out;
+            width: 18px;
+        }
+
+            .header .mIcon .navIcon:before,
+            .header .mIcon .navIcon:after {
+                background: #333;
+                content: '';
+                display: block;
+                height: 100%;
+                position: absolute;
+                transition: all .2s ease-out;
+                width: 100%;
+            }
+
+            .header .mIcon .navIcon:before {
+                top: 5px;
+            }
+
+            .header .mIcon .navIcon:after {
+                top: -5px;
+            }
+
+
+    .header .mButton {
+        display: none;
+    }
+
+        .header .mButton:checked ~ .menu {
+            max-height: 240px;
+        }
+
+        .header .mButton:checked ~ .mIcon .navIcon {
+            background: transparent;
+        }
+
+            .header .mButton:checked ~ .mIcon .navIcon:before {
+                transform: rotate(-45deg);
+            }
+
+            .header .mButton:checked ~ .mIcon .navIcon:after {
+                transform: rotate(45deg);
+            }
+
+        .header .mButton:checked ~ .mIcon:not(.steps) .navIcon:before,
+        .header .mButton:checked ~ .mIcon:not(.steps) .navIcon:after {
+            top: 0;
+        }
+
+@media (min-width: 48em) {
+    .header li {
+        float: left;
+    }
+
+        .header li a {
+            padding: 20px 30px;
+        }
+
+    .header .menu {
+        clear: none;
+        float: right;
+        max-height: none;
+    }
+
+    .header .mIcon {
+        display: none;
+    }
+}
+</style>
+
+</head>
+<body>
+    <div class="header">
+        <a href="#" class="logo">LOGO</a>
+        <input class="mButton" type="checkbox" id="menu-btn" />
+        <label class="mIcon" for="menu-btn"><span class="navIcon"></span></label>
+        <ul class="menu">
+            <li><a href="#">LINK</a></li>
+            <li><a href="#">LINK</a></li>
+            <li><a href="#">LINK</a></li>
+            <li><a href="#">LINK</a></li>
+        </ul>
+        
+    </div>
+</body>
+</html>
